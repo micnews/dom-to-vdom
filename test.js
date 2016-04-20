@@ -43,3 +43,12 @@ test('element with children', t => {
 
   t.is(actual, expected);
 });
+
+test('only care about element nodes & text', t => {
+  const input = '<div><!-- this should be ignored --></div>';
+  const [dom] = queryDom(input);
+  const actual = render(domToJsx(dom));
+  const expected = '<div></div>';
+
+  t.is(actual, expected);
+});
