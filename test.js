@@ -34,3 +34,12 @@ test('text as root node', t => {
 
   t.is(actual, expected);
 });
+
+test('element with children', t => {
+  const input = '<div><span beep="boop"></span>foo</div>';
+  const [dom] = queryDom(input);
+  const actual = render(domToJsx(dom));
+  const expected = input;
+
+  t.is(actual, expected);
+});
