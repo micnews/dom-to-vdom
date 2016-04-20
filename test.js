@@ -8,20 +8,29 @@ import init from './lib';
 const render = vdom => renderString(tree(vdom));
 const domToJsx = init({element});
 
-test('empty element', t => {
-  const [dom] = queryDom('<div></div>');
+test('empty element root node', t => {
+  const input = '<div></div>';
+  const [dom] = queryDom(input);
+  const actual = render(domToJsx(dom));
+  const expected = input;
 
-  t.is(render(domToJsx(dom)), '<div></div>');
+  t.is(actual, expected);
 });
 
 test('attributes on root node', t => {
-  const [dom] = queryDom('<span class="foo" bar="bas"></span>');
+  const input = '<span class="foo" bar="bas"></span>';
+  const [dom] = queryDom(input);
+  const actual = render(domToJsx(dom));
+  const expected = input;
 
-  t.is(render(domToJsx(dom)), '<span class="foo" bar="bas"></span>');
+  t.is(actual, expected);
 });
 
 test('text as root node', t => {
-  const [dom] = queryDom('beep boop');
+  const input = 'beep boop';
+  const [dom] = queryDom(input);
+  const actual = render(domToJsx(dom));
+  const expected = input;
 
-  t.is(render(domToJsx(dom)), 'beep boop');
+  t.is(actual, expected);
 });
