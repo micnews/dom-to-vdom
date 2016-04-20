@@ -19,3 +19,9 @@ test('attributes on root node', t => {
 
   t.is(render(domToJsx(dom)), '<span class="foo" bar="bas"></span>');
 });
+
+test('text as root node', t => {
+  const [dom] = queryDom('beep boop');
+
+  t.is(render(domToJsx(dom)), 'beep boop');
+});
