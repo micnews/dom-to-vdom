@@ -13,3 +13,9 @@ test('empty element', t => {
 
   t.is(render(domToJsx(dom)), '<div></div>');
 });
+
+test('attributes on root node', t => {
+  const [dom] = queryDom('<span class="foo" bar="bas"></span>');
+
+  t.is(render(domToJsx(dom)), '<span class="foo" bar="bas"></span>');
+});
