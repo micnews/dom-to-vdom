@@ -1,6 +1,6 @@
 {
   "name": "dom-to-vdom",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Get virtual dom from normal browser dom",
   "main": "dist/index.js",
   "scripts": {
